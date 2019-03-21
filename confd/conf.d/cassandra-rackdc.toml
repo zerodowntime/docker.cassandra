@@ -1,0 +1,6 @@
+[template]
+src = "cassandra-rackdc.properties"
+dest = "/etc/cassandra/conf/cassandra-rackdc.properties"
+keys = [
+    "/cassandra",
+]

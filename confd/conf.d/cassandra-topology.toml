@@ -1,0 +1,6 @@
+[template]
+src = "cassandra-topology.properties"
+dest = "/etc/cassandra/conf/cassandra-topology.properties"
+keys = [
+    "/cassandra",
+]
