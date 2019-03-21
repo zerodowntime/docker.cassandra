@@ -27,6 +27,8 @@ EXPOSE 7000 7001 7199 9042 9160
 COPY confd/ /etc/confd
 COPY docker-entrypoint.sh /
 
+COPY post-start.sh        /opt/
+COPY pre-stop.sh          /opt/
 COPY liveness-probe.sh    /opt/
 COPY readiness-probe.sh   /opt/
 
