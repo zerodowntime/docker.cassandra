@@ -14,6 +14,9 @@ RUN yum -y install \
     && yum clean all \
     && rm -rf /var/cache/yum /var/tmp/* /tmp/*
 
+RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/local/bin/jq \
+    && chmod +x /usr/local/bin/jq
+
 VOLUME /var/lib/cassandra
 VOLUME /var/log/cassandra
 
