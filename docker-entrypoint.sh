@@ -48,4 +48,9 @@ fi
 
 confd -onetime -log-level debug || exit 2
 
+ulimit -l 65000  # memlock
+ulimit -n 100000  # nofile
+ulimit -u 32768  # nproc
+# ulimit -A 65000  # as
+
 exec su-exec cassandra /usr/sbin/cassandra -f
