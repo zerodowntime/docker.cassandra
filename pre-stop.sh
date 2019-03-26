@@ -21,7 +21,7 @@ if [ -d /run/secrets/kubernetes.io/serviceaccount ]; then
         if nodetool netstats | grep -i Mode | grep -i DRAINED; then
           exec nodetool stopdaemon
         fi
-        sleep 10
+        sleep 60
       done
     fi
   fi
