@@ -53,4 +53,7 @@ ulimit -n 100000  # nofile
 ulimit -u 32768  # nproc
 # ulimit -A 65000  # as
 
+# fix for kubernetes
+install -d -o cassandra -g cassandra -m 755 /var/lib/cassandra/{commitlog,data,hints,saved_caches}
+
 exec su-exec cassandra /usr/sbin/cassandra -f
