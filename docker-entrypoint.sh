@@ -46,6 +46,14 @@ if [ -n "$CASSANDRA_RACK_DISCOVERY_URL" ]; then
   export CASSANDRA_RACK
 fi
 
+if [ -n "$CASSANDRA_IGNORE_DC" ]; then
+  echo 'JVM_OPTS="$JVM_OPTS -Dcassandra.ignore_dc=true"' >> /etc/cassandra/conf/cassandra-env.sh
+fi
+
+if [ -n "$CASSANDRA_IGNORE_RACK" ]; then
+  echo 'JVM_OPTS="$JVM_OPTS -Dcassandra.ignore_rack=true"' >> /etc/cassandra/conf/cassandra-env.sh
+fi
+
 confd -onetime -log-level debug || exit 2
 
 ulimit -l 65000  # memlock
