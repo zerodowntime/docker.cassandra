@@ -44,7 +44,10 @@ elif [ -n "$CASSANDRA_DC_DISCOVERY_URL" ]; then
 fi
 
 # CASSANDRA_RACK_DISCOVERY_URL=http://169.254.169.254/latest/meta-data/placement/availability-zone
-if [ -n "$CASSANDRA_RACK_DISCOVERY_URL" ]; then
+if [ -n "$CASSANDRA_RACK_DISCOVERY_COMMAND" ]; then
+  CASSANDRA_RACK=$(eval "$CASSANDRA_RACK_DISCOVERY_COMMAND")
+  export CASSANDRA_RACK
+elif [ -n "$CASSANDRA_RACK_DISCOVERY_URL" ]; then
   CASSANDRA_RACK=$(curl --connect-timeout 5 "$CASSANDRA_RACK_DISCOVERY_URL")
   export CASSANDRA_RACK
 fi
