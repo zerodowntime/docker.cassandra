@@ -2,13 +2,12 @@
 ## author: Piotr Stawarski <piotr.stawarski@zerodowntime.pl>
 ##
 
-FROM zerodowntime/centos:7.6.1810
+FROM zerodowntime/openjdk:1.8.0-centos7.7.1908
 
 ARG CASSANDRA_VERSION="3.11.4"
 ARG CASSANDRA_PACKAGE_VERSION="$CASSANDRA_VERSION-1"
 
 RUN yum -y install \
-      java-1.8.0 \
       https://archive.apache.org/dist/cassandra/redhat/311x/cassandra-$CASSANDRA_PACKAGE_VERSION.noarch.rpm \
       https://archive.apache.org/dist/cassandra/redhat/311x/cassandra-tools-$CASSANDRA_PACKAGE_VERSION.noarch.rpm \
     && yum clean all \
