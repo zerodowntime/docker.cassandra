@@ -33,5 +33,6 @@ COPY post-start.sh        /opt/
 COPY pre-stop.sh          /opt/
 COPY liveness-probe.sh    /opt/
 COPY readiness-probe.sh   /opt/
+COPY *-rackdc.sh          /opt/
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
